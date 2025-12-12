@@ -3,175 +3,131 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Importance of Having an Open Campus</title>
+    <title>Open Campus PSA</title>
 
     <style>
-        :root {
-            --maroon: #7a0019;
-            --black: #111;
-        }
-
         body {
             margin: 0;
-            font-family: system-ui, Arial, sans-serif;
+            font-family: "Inter", Arial, sans-serif;
             background: #0d0d0d;
             color: white;
-            scroll-behavior: smooth;
+            line-height: 1.7;
         }
 
+        /* NAVIGATION */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            z-index: 50;
-            background: rgba(0, 0, 0, 0.75);
-            backdrop-filter: blur(12px);
-            padding: 14px 0;
+            background: rgba(0,0,0,0.65);
+            padding: 16px 0;
+            backdrop-filter: blur(8px);
+            z-index: 100;
         }
 
         nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 35px;
             padding: 0;
             margin: 0;
         }
 
         nav a {
-            text-decoration: none;
             color: #f1f1f1;
+            text-decoration: none;
             font-size: 1rem;
-            border-bottom: 2px solid transparent;
-            padding-bottom: 4px;
             transition: 0.2s;
         }
 
         nav a:hover {
-            border-bottom: 2px solid var(--maroon);
+            color: #ffb3c6;
         }
 
+        /* HERO */
         header {
+            padding-top: 140px;
             text-align: center;
-            padding: 130px 20px 90px;
+            padding-bottom: 40px;
         }
 
         header h1 {
-            font-size: 2.7rem;
-            margin-bottom: 10px;
+            font-size: 3rem;
+            font-weight: 700;
         }
 
         .hero-img {
-            width: 85%;
-            max-width: 750px;
-            border-radius: 16px;
-            margin-top: 25px;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+            width: 90%;
+            max-width: 800px;
+            margin-top: 35px;
+            border-radius: 14px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
         }
 
-        section {
+        /* PSA CONTENT */
+        .psa-container {
             max-width: 900px;
-            margin: 40px auto;
-            background: rgba(255, 255, 255, 0.07);
-            border-radius: 14px;
-            padding: 25px;
+            margin: 50px auto;
+            background: rgba(255,255,255,0.06);
+            padding: 40px;
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,0.08);
             backdrop-filter: blur(6px);
-            border: 1px solid rgba(255, 255, 255, 0.07);
+            font-size: 1.15rem;
         }
 
-        section h2 {
-            color: #ffdce0;
-        }
-
-        .img-box {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .img-box img {
-            width: 85%;
-            max-width: 650px;
-            border-radius: 14px;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.5);
-        }
-
-        .cta {
-            background: var(--maroon);
-            padding: 25px;
-            text-align: center;
-            font-size: 1.3rem;
-            border-radius: 14px;
-            margin-top: 40px;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.6);
-        }
-
+        /* FOOTER */
         footer {
             text-align: center;
+            margin-top: 60px;
             padding: 25px;
+            font-size: 0.9rem;
             opacity: 0.6;
-            margin-top: 40px;
         }
     </style>
 </head>
 
 <body>
 
+    <!-- NAVIGATION -->
     <nav>
         <ul>
-            <li><a href="#topic">Topic</a></li>
-            <li><a href="#message">Message</a></li>
-            <li><a href="#evidence">Evidence</a></li>
-            <li><a href="#rhetoric">Ethos / Pathos / Logos</a></li>
-            <li><a href="#action">Call to Action</a></li>
+            <li><a href="#psa">PSA</a></li>
+            <li><a href="#footer">Credits</a></li>
         </ul>
     </nav>
 
+    <!-- HEADER -->
     <header>
         <h1>The Importance of Having an Open Campus</h1>
-        <p>A Public Service Announcement</p>
 
+        <!-- Guaranteed working image -->
         <img class="hero-img" 
-        src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80"
-        alt="Students walking on campus" />
+             src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=1200&q=80"
+             alt="Students walking outside" />
     </header>
 
-    <section id="topic">
-        <h2>My Topic</h2>
-        <p>The importance of having an open campus.</p>
-    </section>
-
-    <section id="message">
-        <h2>My Message</h2>
-        <p>Having an open campus can increase student satisfaction with school.</p>
-    </section>
-
-    <section id="evidence">
-        <h2>Evidence That Supports My Message</h2>
+    <!-- PSA (fully connected into one section) -->
+    <div id="psa" class="psa-container">
         <p>
-            Surveys often ask students about their happiness, stress levels, and overall school experience.  
-            Schools with open campuses report higher student satisfaction scores compared to closed-campus schools.  
-            In a 2021 survey of high school students in California, 78% of students with open campuses reported feeling more independent and satisfied with their school experience.
+            The importance of having an open campus is based on the idea that allowing students more freedom 
+            can improve their overall school experience. Having an open campus can increase student satisfaction 
+            with school. Surveys often ask students about their happiness, stress levels, and overall school 
+            experience, and schools with open campuses report higher student satisfaction scores compared to 
+            closed-campus schools. In a 2021 survey of high school students in California, 78% of students with 
+            open campuses reported feeling more independent and satisfied with their school experience.
         </p>
 
-        <div class="img-box">
-            <img 
-            src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80"
-            alt="Students studying outdoors" />
-        </div>
-    </section>
+        <p>
+            This PSA uses real student survey data and comparisons between open and closed campuses (ethos). 
+            Open campuses can also reduce stress and increase student happiness (pathos). Evidence clearly 
+            shows that schools with open campuses consistently have higher student satisfaction (logos). 
+            Schools should have open campuses for students during lunch hours.
+        </p>
+    </div>
 
-    <section id="rhetoric">
-        <h2>Ethos, Pathos, and Logos</h2>
-        <p><strong>Ethos:</strong> This PSA uses real student survey data and comparisons between open and closed campuses.</p>
-        <p><strong>Pathos:</strong> Open campuses can reduce stress and increase student happiness.</p>
-        <p><strong>Logos:</strong> Evidence shows that schools with open campuses consistently have higher student satisfaction.</p>
-    </section>
-
-    <section id="action" class="cta">
-        Have open campuses for students during lunch hours.
-    </section>
-
-    <footer>
+    <footer id="footer">
         Woodcreek High School • PSA Project • Tyler Thompson
     </footer>
 
