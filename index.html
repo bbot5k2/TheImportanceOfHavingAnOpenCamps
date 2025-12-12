@@ -19,7 +19,6 @@
             scroll-behavior: smooth;
         }
 
-        /* NAVIGATION */
         nav {
             position: fixed;
             top: 0;
@@ -64,13 +63,12 @@
 
         .hero-img {
             width: 85%;
-            max-width: 700px;
+            max-width: 750px;
             border-radius: 16px;
             margin-top: 25px;
             box-shadow: 0 12px 40px rgba(0,0,0,0.6);
         }
 
-        /* CONTENT SECTIONS */
         section {
             max-width: 900px;
             margin: 40px auto;
@@ -91,13 +89,12 @@
         }
 
         .img-box img {
-            width: 80%;
-            max-width: 600px;
-            border-radius: 12px;
+            width: 85%;
+            max-width: 650px;
+            border-radius: 14px;
             box-shadow: 0 10px 35px rgba(0,0,0,0.5);
         }
 
-        /* CTA */
         .cta {
             background: var(--maroon);
             padding: 25px;
@@ -114,54 +111,64 @@
             opacity: 0.6;
             margin-top: 40px;
         }
-
     </style>
 </head>
 
 <body>
-    <!-- NAV -->
+
     <nav>
         <ul>
             <li><a href="#topic">Topic</a></li>
             <li><a href="#message">Message</a></li>
             <li><a href="#evidence">Evidence</a></li>
+            <li><a href="#rhetoric">Ethos / Pathos / Logos</a></li>
             <li><a href="#action">Call to Action</a></li>
         </ul>
     </nav>
 
-    <!-- HEADER -->
     <header>
         <h1>The Importance of Having an Open Campus</h1>
         <p>A Public Service Announcement</p>
 
-        <img class="hero-img" src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80" />
+        <img class="hero-img" 
+        src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80"
+        alt="Students walking on campus" />
     </header>
 
-    <!-- TOPIC -->
     <section id="topic">
         <h2>My Topic</h2>
-        <p>The importance of having an open campus</p>
+        <p>The importance of having an open campus.</p>
     </section>
 
-    <!-- MESSAGE -->
     <section id="message">
         <h2>My Message</h2>
-        <p>Having an open campus can increase students satisfaction for school.</p>
+        <p>Having an open campus can increase student satisfaction with school.</p>
     </section>
 
-    <!-- EVIDENCE -->
     <section id="evidence">
         <h2>Evidence That Supports My Message</h2>
-        <p>Surveys often ask about their hapness, stress level, or overall school expirince. Schools with open campuses report higher student satisfaction scores compared to closed campus schools. In a 2021 survery of highschool students in California 78% of students with open campuses reported feeling more independed and satifed with their school experince.</p>
+        <p>
+            Surveys often ask students about their happiness, stress levels, and overall school experience.  
+            Schools with open campuses report higher student satisfaction scores compared to closed-campus schools.  
+            In a 2021 survey of high school students in California, 78% of students with open campuses reported feeling more independent and satisfied with their school experience.
+        </p>
 
         <div class="img-box">
-            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80" />
+            <img 
+            src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80"
+            alt="Students studying outdoors" />
         </div>
     </section>
 
-    <!-- CALL TO ACTION -->
+    <section id="rhetoric">
+        <h2>Ethos, Pathos, and Logos</h2>
+        <p><strong>Ethos:</strong> This PSA uses real student survey data and comparisons between open and closed campuses.</p>
+        <p><strong>Pathos:</strong> Open campuses can reduce stress and increase student happiness.</p>
+        <p><strong>Logos:</strong> Evidence shows that schools with open campuses consistently have higher student satisfaction.</p>
+    </section>
+
     <section id="action" class="cta">
-        have open campuses for students during lunch hours.
+        Have open campuses for students during lunch hours.
     </section>
 
     <footer>
