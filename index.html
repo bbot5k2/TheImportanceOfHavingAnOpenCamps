@@ -1,202 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open Campus PSA - Woodcreek High School</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Importance of Having an Open Campus</title>
 
     <style>
-        /* --- GLOBAL STYLE --- */
-        body {
-            margin: 0;
-            font-family: "Segoe UI", Arial, sans-serif;
-            background: linear-gradient(135deg, #6a1b9a, #283593);
-            color: white;
-            overflow-x: hidden;
+        :root {
+            --maroon: #7a0019;
+            --black: #111;
+            --light: #f5f5f5;
         }
 
-        /* --- NAV BAR --- */
+        body {
+            margin: 0;
+            font-family: system-ui, Arial, sans-serif;
+            background: #0e0e0e;
+            color: white;
+            scroll-behavior: smooth;
+        }
+
+        /* NAVIGATION */
         nav {
-            width: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 15px 0;
             position: fixed;
             top: 0;
-            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.75);
             backdrop-filter: blur(10px);
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         nav ul {
-            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            list-style: none;
             padding: 0;
-            text-align: center;
+            margin: 0;
         }
 
-        nav ul li {
-            display: inline;
-            margin: 0 20px;
-        }
-
-        nav ul li a {
-            color: white;
+        nav a {
             text-decoration: none;
-            font-size: 1.1em;
-            transition: 0.3s;
+            color: #f1f1f1;
+            font-size: 1rem;
+            padding-bottom: 3px;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s ease;
         }
 
-        nav ul li a:hover {
-            color: #ffcc00;
+        nav a:hover {
+            border-bottom: 2px solid var(--maroon);
         }
 
-        /* --- HEADER SECTION --- */
         header {
+            padding: 140px 20px 90px;
             text-align: center;
-            padding: 140px 20px 80px;
         }
 
         header h1 {
-            font-size: 3em;
-            animation: fadeInDown 1.2s ease-out;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
         }
 
         header p {
-            font-size: 1.3em;
             opacity: 0.9;
+            font-size: 1.2rem;
         }
 
-        /* --- ANIMATION KEYFRAMES --- */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* --- CONTENT SECTIONS --- */
         section {
-            max-width: 850px;
-            margin: 40px auto;
-            background: rgba(255, 255, 255, 0.15);
-            padding: 25px 30px;
-            border-radius: 12px;
-            backdrop-filter: blur(12px);
-            animation: fadeIn 1.5s ease-out;
+            max-width: 900px;
+            margin: 35px auto;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 25px 28px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(5px);
         }
 
         section h2 {
-            color: #ffcc00;
             margin-top: 0;
+            color: #ffdadf;
         }
 
-        /* --- IMAGES --- */
-        .image-box {
-            text-align: center;
-            margin: 20px 0;
+        ul li {
+            margin-bottom: 8px;
         }
 
-        .image-box img {
-            width: 70%;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
-        }
-
-        /* --- CALL TO ACTION --- */
         .cta {
             text-align: center;
+            background: var(--maroon);
             padding: 25px;
-            background: #ff5252;
-            border-radius: 12px;
-            font-size: 1.4em;
-            color: white;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            font-size: 1.3rem;
+            border-radius: 14px;
+            margin-top: 50px;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.6);
         }
 
-        /* --- FOOTER --- */
         footer {
             text-align: center;
-            padding: 20px;
-            margin-top: 50px;
-            opacity: 0.8;
+            padding: 30px 10px;
+            margin-top: 40px;
+            opacity: 0.7;
+            font-size: 0.9rem;
         }
+
     </style>
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
-<nav>
-    <ul>
-        <li><a href="#message">Message</a></li>
-        <li><a href="#evidence">Evidence</a></li>
-        <li><a href="#ethos">Ethos</a></li>
-        <li><a href="#pathos">Pathos</a></li>
-        <li><a href="#logos">Logos</a></li>
-        <li><a href="#cta">Action</a></li>
-    </ul>
-</nav>
+    <!-- NAV BAR -->
+    <nav>
+        <ul>
+            <li><a href="#message">Message</a></li>
+            <li><a href="#evidence">Evidence</a></li>
+            <li><a href="#rhetoric">Ethos / Pathos / Logos</a></li>
+            <li><a href="#action">Call to Action</a></li>
+        </ul>
+    </nav>
 
-<!-- HEADER -->
-<header>
-    <img src="https://upload.wikimedia.org/wikipedia/en/5/5d/Woodcreek_High_School_logo.png" 
-         alt="Woodcreek High School Logo" 
-         style="width:120px; margin-bottom:20px; border-radius: 10px;">
-    <h1>The Importance of an Open Campus</h1>
-    <p>A modern PSA for Woodcreek High School</p>
-</header>
+    <!-- HEADER -->
+    <header>
+        <h1>The Importance of Having an Open Campus</h1>
+        <p>A Public Service Announcement</p>
+    </header>
 
-<!-- MESSAGE -->
-<section id="message">
-    <h2>Our Message</h2>
-    <p>Having an open campus can greatly improve student satisfaction, reduce stress, and make school a better environment.</p>
+    <!-- MESSAGE -->
+    <section id="message">
+        <h2>Message</h2>
+        <p>Having an open campus can improve student satisfaction and overall school experience.</p>
+    </section>
 
-    <div class="image-box">
-        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1" alt="Students outside campus">
-    </div>
-</section>
+    <!-- EVIDENCE -->
+    <section id="evidence">
+        <h2>Evidence</h2>
+        <ul>
+            <li>Surveys ask students about happiness, stress, and school experience.</li>
+            <li>Schools with open campuses report higher student satisfaction.</li>
+            <li>In a 2021 California survey, 78% of students said they felt more satisfied when given open-campus privileges.</li>
+        </ul>
+    </section>
 
-<!-- EVIDENCE -->
-<section id="evidence">
-    <h2>Evidence</h2>
-    <p>• Surveys show students at open-campus schools report higher happiness and independence.</p>
-    <p>• A 2021 study found that 78% of California high school students felt more satisfied when given open-campus lunch privileges.</p>
-    <p>• Open campuses help students decompress, socialize, and return to class with better focus.</p>
+    <!-- ETHOS / PATHOS / LOGOS -->
+    <section id="rhetoric">
+        <h2>Rhetorical Strategies</h2>
+        <p><strong>Ethos:</strong> This PSA uses real student survey data and comparisons between open and closed campuses.</p>
+        <p><strong>Pathos:</strong> Open campuses reduce stress and increase happiness for students.</p>
+        <p><strong>Logos:</strong> The evidence clearly shows that open-campus schools have higher student satisfaction.</p>
+    </section>
 
-    <div class="image-box">
-        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b" alt="School campus environment">
-    </div>
-</section>
+    <!-- CALL TO ACTION -->
+    <section id="action" class="cta">
+        Allow open campus lunch for students.
+    </section>
 
-<!-- ETHOS -->
-<section id="ethos">
-    <h2>Credibility (Ethos)</h2>
-    <p>This PSA is based on real survey data, student reports, and comparisons between open and closed campuses in California high schools.</p>
-</section>
-
-<!-- PATHOS -->
-<section id="pathos">
-    <h2>Emotional Appeal (Pathos)</h2>
-    <p>Open campus helps reduce stress, boosts happiness, and gives teens the independence they need to thrive.</p>
-</section>
-
-<!-- LOGOS -->
-<section id="logos">
-    <h2>Logical Appeal (Logos)</h2>
-    <p>The evidence is clear: schools with open campus policies consistently show higher student satisfaction and improved well-being.</p>
-</section>
-
-<!-- CALL TO ACTION -->
-<section id="cta" class="cta">
-    Allow open campus lunch hours for Woodcreek High School students.
-</section>
-
-<!-- FOOTER -->
-<footer>
-    Woodcreek High School • Public Service Announcement Project • 2025
-</footer>
+    <footer>
+        Woodcreek High School • PSA Project • Tyler Thompson
+    </footer>
 
 </body>
 </html>
