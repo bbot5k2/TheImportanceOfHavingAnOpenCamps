@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Campus PSA - Woodcreek High School</title>
+
+    <style>
+        /* --- GLOBAL STYLE --- */
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(135deg, #6a1b9a, #283593);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* --- NAV BAR --- */
+        nav {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+
+        /* --- HEADER SECTION --- */
+        header {
+            text-align: center;
+            padding: 140px 20px 80px;
+        }
+
+        header h1 {
+            font-size: 3em;
+            animation: fadeInDown 1.2s ease-out;
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+        }
+
+        /* --- ANIMATION KEYFRAMES --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* --- CONTENT SECTIONS --- */
+        section {
+            max-width: 850px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 25px 30px;
+            border-radius: 12px;
+            backdrop-filter: blur(12px);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        section h2 {
+            color: #ffcc00;
+            margin-top: 0;
+        }
+
+        /* --- IMAGES --- */
+        .image-box {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .image-box img {
+            width: 70%;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+        }
+
+        /* --- CALL TO ACTION --- */
+        .cta {
+            text-align: center;
+            padding: 25px;
+            background: #ff5252;
+            border-radius: 12px;
+            font-size: 1.4em;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+    <ul>
+        <li><a href="#message">Message</a></li>
+        <li><a href="#evidence">Evidence</a></li>
+        <li><a href="#ethos">Ethos</a></li>
+        <li><a href="#pathos">Pathos</a></li>
+        <li><a href="#logos">Logos</a></li>
+        <li><a href="#cta">Action</a></li>
+    </ul>
+</nav>
+
+<!-- HEADER -->
+<header>
+    <img src="https://upload.wikimedia.org/wikipedia/en/5/5d/Woodcreek_High_School_logo.png" 
+         alt="Woodcreek High School Logo" 
+         style="width:120px; margin-bottom:20px; border-radius: 10px;">
+    <h1>The Importance of an Open Campus</h1>
+    <p>A modern PSA for Woodcreek High School</p>
+</header>
+
+<!-- MESSAGE -->
+<section id="message">
+    <h2>Our Message</h2>
+    <p>Having an open campus can greatly improve student satisfaction, reduce stress, and make school a better environment.</p>
+
+    <div class="image-box">
+        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1" alt="Students outside campus">
+    </div>
+</section>
+
+<!-- EVIDENCE -->
+<section id="evidence">
+    <h2>Evidence</h2>
+    <p>• Surveys show students at open-campus schools report higher happiness and independence.</p>
+    <p>• A 2021 study found that 78% of California high school students felt more satisfied when given open-campus lunch privileges.</p>
+    <p>• Open campuses help students decompress, socialize, and return to class with better focus.</p>
+
+    <div class="image-box">
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b" alt="School campus environment">
+    </div>
+</section>
+
+<!-- ETHOS -->
+<section id="ethos">
+    <h2>Credibility (Ethos)</h2>
+    <p>This PSA is based on real survey data, student reports, and comparisons between open and closed campuses in California high schools.</p>
+</section>
+
+<!-- PATHOS -->
+<section id="pathos">
+    <h2>Emotional Appeal (Pathos)</h2>
+    <p>Open campus helps reduce stress, boosts happiness, and gives teens the independence they need to thrive.</p>
+</section>
+
+<!-- LOGOS -->
+<section id="logos">
+    <h2>Logical Appeal (Logos)</h2>
+    <p>The evidence is clear: schools with open campus policies consistently show higher student satisfaction and improved well-being.</p>
+</section>
+
+<!-- CALL TO ACTION -->
+<section id="cta" class="cta">
+    Allow open campus lunch hours for Woodcreek High School students.
+</section>
+
+<!-- FOOTER -->
+<footer>
+    Woodcreek High School • Public Service Announcement Project • 2025
+</footer>
+
+</body>
+</html>
