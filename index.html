@@ -1,529 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Open Campus PSA | Woodcreek</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open Campus PSA</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg0:#07080b;
-      --bg1:#0b0d12;
-      --card: rgba(255,255,255,.06);
-      --card2: rgba(255,255,255,.08);
-      --stroke: rgba(255,255,255,.12);
-      --text:#eef0f7;
-      --muted: rgba(238,240,247,.72);
-      --accent:#a10f2b;      /* maroon-ish */
-      --accent2:#ff5aa5;     /* pink glow accent */
-      --good:#46e6a6;
-      --warn:#ffd166;
-      --shadow: 0 18px 60px rgba(0,0,0,.55);
-      --radius: 18px;
-    }
+<style>
+/* ===== CORE THEME ===== */
+:root{
+  --bg0:#05060a;
+  --bg1:#0b0d12;
+  --card:rgba(255,255,255,.06);
+  --stroke:rgba(255,255,255,.12);
+  --text:#eef0f7;
+  --muted:rgba(238,240,247,.7);
+  --accent:#a10f2b;
+  --accent2:#ff5aa5;
+}
 
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-      color: var(--text);
-      background: radial-gradient(1200px 700px at 20% -10%, rgba(161,15,43,.55), transparent 55%),
-                  radial-gradient(900px 600px at 90% 10%, rgba(255,90,165,.28), transparent 55%),
-                  linear-gradient(180deg, var(--bg0), var(--bg1));
-      overflow-x:hidden;
-    }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,system-ui,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(900px 500px at 20% -10%, rgba(161,15,43,.55), transparent 55%),
+    radial-gradient(700px 400px at 90% 10%, rgba(255,90,165,.25), transparent 55%),
+    linear-gradient(180deg,var(--bg0),var(--bg1));
+}
 
-    /* Subtle animated grid */
-    .grid{
-      position:fixed; inset:0;
-      pointer-events:none;
-      background-image:
-        linear-gradient(to right, rgba(255,255,255,.06) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,.06) 1px, transparent 1px);
-      background-size: 70px 70px;
-      opacity:.07;
-      mask-image: radial-gradient(500px 300px at 50% 10%, black 30%, transparent 70%);
-      animation: drift 14s linear infinite;
-      z-index:-2;
-    }
-    @keyframes drift{
-      from{ transform:translate3d(0,0,0); }
-      to{ transform:translate3d(70px,70px,0); }
-    }
+/* ===== PROGRESS BAR ===== */
+.progress{
+  position:fixed;
+  top:0;left:0;
+  height:3px;
+  width:0%;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  z-index:9999;
+}
 
-    /* Progress bar */
-    .progress{
-      position:fixed; top:0; left:0;
-      height:3px; width:0%;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 18px rgba(255,90,165,.55);
-      z-index:9999;
-    }
+/* ===== NAV ===== */
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--stroke);
+  z-index:1000;
+}
+.nav-inner{
+  max-width:1100px;
+  margin:auto;
+  padding:14px 18px;
+  display:flex;
+  justify-content:space-between;
+}
+.nav-inner a{
+  color:var(--text);
+  text-decoration:none;
+  opacity:.85;
+}
+.nav-inner a:hover{opacity:1}
 
-    /* NAV */
-    nav{
-      position:fixed; top:0; left:0; right:0;
-      z-index:1000;
-      background: rgba(5,6,10,.55);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-    .nav-inner{
-      max-width:1100px;
-      margin:0 auto;
-      padding:14px 16px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      min-width: 240px;
-    }
-    .logo{
-      width:42px; height:42px;
-      border-radius:12px;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.12);
-      display:grid; place-items:center;
-      overflow:hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
-    }
-    .logo img{
-      width:100%; height:100%;
-      object-fit:cover;
-      display:block;
-    }
-    .brand-title{
-      display:flex; flex-direction:column; line-height:1.1;
-    }
-    .brand-title strong{ font-size: .95rem; letter-spacing:.2px; }
-    .brand-title span{ font-size:.78rem; color: var(--muted); }
+/* ===== HERO ===== */
+header{
+  max-width:1100px;
+  margin:auto;
+  padding:120px 18px 40px;
+}
+h1{
+  font-size:clamp(2.2rem,3.2vw,3.2rem);
+  margin-bottom:10px;
+}
+header p{
+  max-width:65ch;
+  color:var(--muted);
+}
 
-    .nav-links{
-      display:flex; gap:14px; align-items:center;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-    .nav-links a{
-      text-decoration:none;
-      color: rgba(238,240,247,.9);
-      font-size:.92rem;
-      padding:8px 10px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      transition: .18s ease;
-    }
-    .nav-links a:hover{
-      border-color: rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      transform: translateY(-1px);
-    }
-    .btn{
-      cursor:pointer;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.07);
-      color: var(--text);
-      border-radius: 999px;
-      padding:9px 12px;
-      font-size:.92rem;
-      transition:.18s ease;
-      display:flex; gap:8px; align-items:center;
-      user-select:none;
-    }
-    .btn:hover{
-      background: rgba(255,255,255,.10);
-      transform: translateY(-1px);
-    }
+/* ===== MAIN ===== */
+main{
+  max-width:1100px;
+  margin:auto;
+  padding:0 18px 70px;
+}
+.section{
+  background:var(--card);
+  border:1px solid var(--stroke);
+  border-radius:18px;
+  padding:28px;
+  margin-top:26px;
+  box-shadow:0 18px 60px rgba(0,0,0,.5);
+}
 
-    /* HERO */
-    header{
-      max-width:1100px;
-      margin:0 auto;
-      padding: 110px 16px 18px;
-    }
-    .hero{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:18px;
-      align-items:stretch;
-    }
-    .hero-card{
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,.10);
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
-    .hero-left{
-      padding:24px;
-    }
-    .pill{
-      display:inline-flex;
-      gap:8px;
-      align-items:center;
-      font-size:.82rem;
-      color: rgba(238,240,247,.88);
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.18);
-      margin-bottom:10px;
-    }
-    .dot{
-      width:8px; height:8px; border-radius:999px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 16px rgba(255,90,165,.55);
-    }
-    h1{
-      margin: 8px 0 10px;
-      font-size: clamp(1.9rem, 3.2vw, 3.0rem);
-      letter-spacing: -.02em;
-      line-height:1.1;
-    }
-    .sub{
-      color: var(--muted);
-      margin: 0 0 14px;
-      font-size: 1.02rem;
-      max-width: 62ch;
-    }
-    .hero-actions{
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin-top: 14px;
-    }
-    .primary{
-      background: linear-gradient(90deg, var(--accent), rgba(255,90,165,.65));
-      border: 1px solid rgba(255,255,255,.14);
-      box-shadow: 0 16px 40px rgba(161,15,43,.35);
-    }
-    .primary:hover{
-      box-shadow: 0 18px 55px rgba(255,90,165,.25);
-    }
+/* ===== ESSAY ===== */
+.essay-text{
+  white-space:pre-wrap;
+  font-size:1.08rem;
+  line-height:1.85;
+}
 
-    .hero-right{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      padding:18px;
-    }
-    .mini{
-      background: rgba(0,0,0,.18);
-      border: 1px solid rgba(255,255,255,.10);
-      border-radius: 16px;
-      padding:14px;
-      position:relative;
-      overflow:hidden;
-    }
-    .mini h3{
-      margin:0 0 6px;
-      font-size: .95rem;
-      color: rgba(238,240,247,.92);
-    }
-    .mini p{
-      margin:0;
-      color: var(--muted);
-      font-size: .92rem;
-    }
-    .stat{
-      display:flex; align-items:flex-end; gap:10px;
-      margin-top:10px;
-    }
-    .big{
-      font-size: 2.2rem;
-      font-weight:800;
-      line-height:1;
-      letter-spacing:-.03em;
-      background: linear-gradient(90deg, #fff, rgba(255,90,165,.75));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-    }
-    .small{
-      color: var(--muted);
-      font-size: .86rem;
-      padding-bottom:4px;
-    }
+/* ===== INTERACTIVE CHIPS ===== */
+.chips{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:18px;
+}
+.chip{
+  padding:9px 16px;
+  border-radius:999px;
+  border:1px solid var(--stroke);
+  background:rgba(255,255,255,.05);
+  cursor:pointer;
+}
+.chip:hover{background:rgba(255,255,255,.08)}
+.chip.active{
+  background:rgba(255,90,165,.16);
+  border-color:rgba(255,90,165,.5);
+}
 
-    /* MAIN */
-    main{
-      max-width:1100px;
-      margin:0 auto;
-      padding: 14px 16px 70px;
-    }
+/* ===== HIGHLIGHTS ===== */
+mark{padding:.1em .3em;border-radius:.4em}
+.ethos{background:rgba(70,230,166,.2)}
+.logos{background:rgba(255,209,102,.2)}
+.pathos{background:rgba(255,90,165,.2)}
 
-    .section{
-      margin-top:16px;
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.10);
-      box-shadow: 0 16px 55px rgba(0,0,0,.45);
-      overflow:hidden;
-    }
-
-    /* IMAGE STRIP */
-    .strip{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:0;
-      min-height: 310px;
-    }
-    .strip .img{
-      position:relative;
-      background:
-        linear-gradient(135deg, rgba(161,15,43,.35), rgba(0,0,0,.65)),
-        url("https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1600&q=80");
-      background-size: cover;
-      background-position:center;
-      overflow:hidden;
-    }
-    .strip .img::after{
-      content:"";
-      position:absolute; inset:-30%;
-      background: radial-gradient(circle at 30% 30%, rgba(255,90,165,.32), transparent 60%);
-      transform: rotate(12deg);
-    }
-    .strip .content{
-      padding:22px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-    }
-    .content h2{
-      margin:0 0 8px;
-      font-size: 1.25rem;
-      letter-spacing:-.01em;
-    }
-    .content p{
-      margin:0;
-      color: var(--muted);
-      font-size: .98rem;
-    }
-
-    /* Essay block (NO edits to text — displayed exactly) */
-    .essay{
-      padding: 22px;
-      position:relative;
-    }
-    .essay-inner{
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.18);
-      padding: 18px 18px;
-      box-shadow: 0 12px 45px rgba(0,0,0,.35);
-      position:relative;
-      overflow:hidden;
-    }
-    .essay-inner::before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(500px 200px at 10% 10%, rgba(255,90,165,.16), transparent 60%),
-                  radial-gradient(500px 200px at 90% 10%, rgba(161,15,43,.18), transparent 60%);
-      pointer-events:none;
-    }
-    .essay-text{
-      position:relative;
-      margin:0;
-      color: rgba(238,240,247,.92);
-      font-size: 1.05rem;
-      line-height: 1.85;
-      white-space: pre-wrap; /* keeps your line breaks/spaces */
-    }
-
-    /* Interactive highlight chips (do NOT change your text; these are separate) */
-    .chips{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      padding: 0 22px 22px;
-    }
-    .chip{
-      border-radius: 999px;
-      padding: 10px 12px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      color: rgba(238,240,247,.92);
-      font-size: .92rem;
-      cursor:pointer;
-      transition:.18s ease;
-      user-select:none;
-    }
-    .chip:hover{ transform: translateY(-1px); background: rgba(255,255,255,.09); }
-    .chip.active{
-      border-color: rgba(255,90,165,.45);
-      box-shadow: 0 0 0 3px rgba(255,90,165,.12);
-      background: rgba(255,90,165,.10);
-    }
-
-    /* Panels */
-    .panels{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:12px;
-      padding: 0 22px 22px;
-    }
-    .panel{
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.18);
-      padding: 14px;
-      min-height: 118px;
-      transition:.18s ease;
-      position:relative;
-      overflow:hidden;
-    }
-    .panel:hover{ transform: translateY(-2px); background: rgba(0,0,0,.22); }
-    .panel h4{ margin:0 0 6px; font-size: .98rem; }
-    .panel p{ margin:0; color: var(--muted); font-size: .92rem; }
-
-    /* CTA */
-    .cta{
-      margin-top:16px;
-      border-radius: var(--radius);
-      padding: 22px;
-      background: linear-gradient(90deg, rgba(161,15,43,.92), rgba(255,90,165,.45));
-      border: 1px solid rgba(255,255,255,.14);
-      box-shadow: 0 22px 70px rgba(161,15,43,.28);
-      position:relative;
-      overflow:hidden;
-    }
-    .cta::after{
-      content:"";
-      position:absolute; inset:-40%;
-      background: radial-gradient(circle at 25% 25%, rgba(255,255,255,.20), transparent 60%);
-      transform: rotate(12deg);
-      pointer-events:none;
-    }
-    .cta-inner{
-      position:relative;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-    .cta h3{
-      margin:0;
-      font-size: 1.2rem;
-      letter-spacing:-.01em;
-    }
-    .cta p{
-      margin:6px 0 0;
-      color: rgba(255,255,255,.88);
-      max-width: 70ch;
-      font-size: .98rem;
-    }
-
-    /* Footer */
-    footer{
-      margin-top:18px;
-      padding: 18px 6px;
-      color: rgba(238,240,247,.62);
-      text-align:center;
-      font-size:.92rem;
-    }
-
-    /* Reveal animation */
-    .reveal{
-      opacity:0;
-      transform: translateY(14px);
-      transition: .7s ease;
-    }
-    .reveal.visible{
-      opacity:1;
-      transform: translateY(0);
-    }
-
-    /* Responsive */
-    @media (max-width: 930px){
-      .hero{ grid-template-columns: 1fr; }
-      .strip{ grid-template-columns: 1fr; }
-      .strip .img{ min-height: 240px; }
-      .panels{ grid-template-columns: 1fr; }
-      .brand{ min-width: 180px; }
-    }
-  </style>
+/* ===== FOOTER ===== */
+footer{
+  margin-top:42px;
+  text-align:center;
+  font-size:.9rem;
+  color:var(--muted);
+}
+footer a{color:var(--muted)}
+footer a:hover{color:var(--text)}
+</style>
 </head>
 
 <body>
-  <div class="progress" id="progress"></div>
-  <div class="grid"></div>
 
-  <nav>
-    <div class="nav-inner">
-      <div class="brand">
-        <div class="logo" title="Upload woodcreek-logo.png to your repo">
-          <!-- Put woodcreek-logo.png in your repo root (same folder as index.html) -->
-          <img id="wcLogo" src="woodcreek-logo.png" alt="Woodcreek logo"
-               onerror="this.onerror=null; this.src='https://www.gomotionapp.com/team/rechswhsa/page/fundraising/become-a-sponsor';" />
-        </div>
-        <div class="brand-title">
-          <strong>Woodcreek PSA</strong>
-          <span>Open Campus • Interactive Website</span>
-        </div>
-      </div>
+<div class="progress" id="progress"></div>
 
-      <div class="nav-links">
-        <a href="#essay">Essay</a>
-        <a href="#interactive">Interactive</a>
-        <a href="#cta">Call to Action</a>
-        <button class="btn" id="copyBtn" type="button">Copy Essay</button>
-      </div>
-    </div>
-  </nav>
+<nav>
+  <div class="nav-inner">
+    <a href="#essay">Essay</a>
+    <a href="#credits">Credits</a>
+  </div>
+</nav>
 
-  <header class="reveal">
-    <div class="hero">
-      <div class="hero-card hero-left">
-        <div class="pill"><span class="dot"></span><span>PSA Passion Project</span></div>
-        <h1>The Importance of Having an Open Campus</h1>
-        <p class="sub">
-          Interactive PSA website with animations, scroll effects, copy button, and a highlight mode
-          (your essay text is pasted exactly as provided).
-        </p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#essay">Read the Essay</a>
-          <a class="btn" href="#interactive">Try Interactive Mode</a>
-        </div>
-      </div>
+<header>
+  <h1>The Importance of Having an Open Campus</h1>
+  <p>A public service announcement on student freedom, satisfaction, and school experience.</p>
+</header>
 
-      <div class="hero-card hero-right">
-        <div class="mini">
-          <h3>Quick Stat</h3>
-          <div class="stat">
-            <div class="big" id="counter">0%</div>
-            <div class="small">from your essay</div>
-          </div>
-          <p>Tap “Try Interactive Mode” to highlight Ethos / Logos / Pathos.</p>
-        </div>
-        <div class="mini">
-          <h3>What to upload</h3>
-          <p>For the Woodcreek logo: add <strong>woodcreek-logo.png</strong> next to <strong>index.html</strong> in your repo.</p>
-        </div>
-      </div>
-    </div>
-  </header>
+<main>
 
-  <main>
-    <section class="section reveal" id="essay">
-      <div class="strip">
-        <div class="img" aria-label="Background student image"></div>
-        <div class="content">
-          <h2>Essay</h2>
-          <p>Your essay is displayed below exactly as you pasted it. The website styling/animations do not change your words.</p>
-        </div>
-      </div>
-
-      <div class="essay">
-        <div class="essay-inner">
-          <p class="essay-text" id="essayText">The importance of having an open campus is based on the idea that allowing students more freedom can improve their overall school experience. Having an open campus can increase student satisfaction with school. 
+<section class="section" id="essay">
+<p class="essay-text" id="essayText">The importance of having an open campus is based on the idea that allowing students more freedom can improve their overall school experience. Having an open campus can increase student satisfaction with school. 
 
 Surveys often ask students about their happiness, stress levels, and overall school experience, and schools with open campuses report higher student satisfaction scores compared to closed-campus schools. 
 
@@ -532,181 +168,61 @@ A study published in Economics of Education Review studied open and closed campu
  This shows that having an open campus can increase grades, and to motivate students to attend school. Not having an open campus is an issue. This is because of increased stress and frustration, reduced independence, and fewer opportunities for responsibility, for example coming back on time.
 
 This argument appeals to ethos through credible academic research, logos through data and measurable outcomes, and pathos by highlighting how closed campus policies can increase student stress and reduce independence.</p>
-        </div>
-      </div>
 
-      <div class="chips" id="interactive">
-        <div class="chip" data-mode="ethos">Highlight: Ethos</div>
-        <div class="chip" data-mode="logos">Highlight: Logos</div>
-        <div class="chip" data-mode="pathos">Highlight: Pathos</div>
-        <div class="chip" data-mode="clear">Clear</div>
-      </div>
+<div class="chips">
+  <div class="chip" data-mode="ethos">Ethos</div>
+  <div class="chip" data-mode="logos">Logos</div>
+  <div class="chip" data-mode="pathos">Pathos</div>
+  <div class="chip" data-mode="clear">Clear</div>
+</div>
+</section>
 
-      <div class="panels">
-        <div class="panel">
-          <h4>Interactive Highlight</h4>
-          <p>Click a highlight chip to glow key phrases (without editing your essay).</p>
-        </div>
-        <div class="panel">
-          <h4>Copy Button</h4>
-          <p>Use “Copy Essay” in the navbar to paste your text into Google Classroom or Slides.</p>
-        </div>
-        <div class="panel">
-          <h4>Scroll Progress</h4>
-          <p>The bar at the top fills as you scroll, making the page feel alive.</p>
-        </div>
-      </div>
-    </section>
+<footer id="credits">
+  Woodcreek High School • PSA Project • Tyler Thompson<br>
+  Evidence source:
+  <a href="https://ideas.repec.org/a/eee/ecoedu/v54y2016icp95-112.html" target="_blank">
+    https://ideas.repec.org/a/eee/ecoedu/v54y2016icp95-112.html
+  </a>
+</footer>
 
-    <section class="cta reveal" id="cta">
-      <div class="cta-inner">
-        <div>
-          <h3>Call to Action</h3>
-          <p>Use this website as your digital visual and read your speech from the exact essay text.</p>
-        </div>
-        <button class="btn" id="toTopBtn" type="button">Back to Top</button>
-      </div>
-    </section>
+</main>
 
-    <footer class="reveal">
-      Woodcreek High School • PSA Project • Tyler Thompson
-    </footer>
-  </main>
+<script>
+/* Progress bar */
+window.addEventListener("scroll",()=>{
+  const h=document.documentElement;
+  document.getElementById("progress").style.width=
+    (h.scrollTop/(h.scrollHeight-h.clientHeight))*100+"%";
+});
 
-  <script>
-    // Scroll progress
-    const progress = document.getElementById("progress");
-    window.addEventListener("scroll", () => {
-      const h = document.documentElement;
-      const scrolled = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
-      progress.style.width = scrolled + "%";
-    });
+/* Highlight logic */
+const essay=document.getElementById("essayText");
+const original=essay.textContent;
+const chips=document.querySelectorAll(".chip");
 
-    // Reveal on scroll
-    const reveals = document.querySelectorAll(".reveal");
-    const obs = new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) e.target.classList.add("visible");
-      }
-    }, { threshold: 0.12 });
-    reveals.forEach(r => obs.observe(r));
+function highlight(mode){
+  let text=original;
+  const map={
+    ethos:["Economics of Education Review","academic performance","attendance data","credible academic research"],
+    logos:["Surveys","higher student satisfaction","measurable differences","data and measurable outcomes"],
+    pathos:["stress","frustration","reduced independence","fewer opportunities for responsibility"]
+  };
+  if(mode==="clear"){essay.textContent=original;return;}
+  map[mode].forEach(t=>{
+    const r=new RegExp(t,"gi");
+    text=text.replace(r,`<mark class="${mode}">$&</mark>`);
+  });
+  essay.innerHTML=text;
+}
 
-    // Animated counter to 78%
-    const counter = document.getElementById("counter");
-    let started = false;
-    const counterObs = new IntersectionObserver((entries) => {
-      if (started) return;
-      if (entries.some(e => e.isIntersecting)) {
-        started = true;
-        let n = 0;
-        const target = 78;
-        const t = setInterval(() => {
-          n += 2;
-          if (n >= target) { n = target; clearInterval(t); }
-          counter.textContent = n + "%";
-        }, 18);
-      }
-    }, { threshold: 0.6 });
-    counterObs.observe(counter);
+chips.forEach(c=>{
+  c.onclick=()=>{
+    chips.forEach(x=>x.classList.remove("active"));
+    c.classList.add("active");
+    highlight(c.dataset.mode);
+  };
+});
+</script>
 
-    // Copy essay
-    const copyBtn = document.getElementById("copyBtn");
-    const essayText = document.getElementById("essayText");
-    copyBtn.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(essayText.textContent);
-        copyBtn.textContent = "Copied!";
-        setTimeout(() => copyBtn.textContent = "Copy Essay", 900);
-      } catch (e) {
-        alert("Copy blocked by browser. Click inside the essay and copy manually.");
-      }
-    });
-
-    // Back to top
-    document.getElementById("toTopBtn").addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-    // Highlight modes (does NOT alter the essay text permanently)
-    const chips = document.querySelectorAll(".chip");
-    const original = essayText.textContent;
-
-    function escapeHtml(str) {
-      return str.replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;");
-    }
-
-    function highlight(mode){
-      // Re-render from the original text every time to avoid corrupting it
-      let html = escapeHtml(original);
-
-      // Highlight patterns (separate from your content; your words remain the same)
-      if (mode === "ethos") {
-        const terms = [
-          "Economics of Education Review",
-          "study published",
-          "academic performance",
-          "attendance data",
-          "credible academic research"
-        ];
-        terms.forEach(t => {
-          const re = new RegExp(t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
-          html = html.replace(re, m => `<mark class="m-ethos">${m}</mark>`);
-        });
-      }
-
-      if (mode === "logos") {
-        const terms = [
-          "Surveys",
-          "higher student satisfaction scores",
-          "viewing academic performance and attendance data",
-          "measurable differences",
-          "data and measurable outcomes"
-        ];
-        terms.forEach(t => {
-          const re = new RegExp(t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
-          html = html.replace(re, m => `<mark class="m-logos">${m}</mark>`);
-        });
-      }
-
-      if (mode === "pathos") {
-        const terms = [
-          "stress",
-          "frustration",
-          "reduced independence",
-          "fewer opportunities for responsibility",
-          "increase student stress"
-        ];
-        terms.forEach(t => {
-          const re = new RegExp(t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
-          html = html.replace(re, m => `<mark class="m-pathos">${m}</mark>`);
-        });
-      }
-
-      if (mode === "clear") {
-        essayText.textContent = original;
-        return;
-      }
-
-      essayText.innerHTML = html;
-    }
-
-    // Mark styles injected via JS for clean separation
-    const style = document.createElement("style");
-    style.textContent = `
-      mark { padding: .06em .22em; border-radius: .45em; }
-      .m-ethos { background: rgba(70,230,166,.20); box-shadow: 0 0 0 2px rgba(70,230,166,.10); color: rgba(238,240,247,.98); }
-      .m-logos { background: rgba(255,209,102,.18); box-shadow: 0 0 0 2px rgba(255,209,102,.10); color: rgba(238,240,247,.98); }
-      .m-pathos { background: rgba(255,90,165,.16); box-shadow: 0 0 0 2px rgba(255,90,165,.10); color: rgba(238,240,247,.98); }
-    `;
-    document.head.appendChild(style);
-
-    chips.forEach(chip => {
-      chip.addEventListener("click", () => {
-        chips.forEach(c => c.classList.remove("active"));
-        chip.classList.add("active");
-        highlight(chip.dataset.mode);
-      });
-    });
-  </script>
 </body>
 </html>
